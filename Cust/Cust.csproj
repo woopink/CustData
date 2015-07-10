@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -161,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\客戶聯絡人Controller.cs" />
@@ -185,6 +187,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CustData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustView.cs">
+      <DependentUpon>CustData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\客戶聯絡人.cs">
@@ -197,7 +202,19 @@
       <DependentUpon>CustData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CustView.aspx.cs">
+      <DependentUpon>CustView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CustView.aspx.designer.cs">
+      <DependentUpon>CustView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="客戶資料DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>客戶資料DataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\客戶資料.mdf" />
@@ -208,6 +225,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Reports\CustView.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\CustData.edmx">
@@ -289,8 +307,22 @@
     <Content Include="Views\客戶銀行資訊\Details.cshtml" />
     <Content Include="Views\客戶銀行資訊\Edit.cshtml" />
     <Content Include="Views\客戶銀行資訊\Index.cshtml" />
+    <Content Include="客戶資料DataSet.xsc">
+      <DependentUpon>客戶資料DataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Views\Default\RdlcReportDemo.cshtml" />
+    <None Include="客戶資料DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>客戶資料DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="客戶資料DataSet.xss">
+      <DependentUpon>客戶資料DataSet.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\Cust.rdlc" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -301,6 +333,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
