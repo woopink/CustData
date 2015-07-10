@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="客戶資料DataSet" targetNamespace="http://tempuri.org/客戶資料DataSet.xsd" xmlns:mstns="http://tempuri.org/客戶資料DataSet.xsd" xmlns="http://tempuri.org/客戶資料DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="客戶資料ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="客戶資料ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.客戶資料ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CustViewTableAdapter" GeneratorDataComponentClassName="CustViewTableAdapter" Name="CustView" UserDataComponentName="CustViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="客戶資料ConnectionString (Web.config)" DbObjectName="dbo.CustView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT 客戶名稱, 聯絡人數量, 銀行帳戶數量 FROM dbo.CustView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="客戶名稱" DataSetColumn="客戶名稱" />
+              <Mapping SourceColumn="聯絡人數量" DataSetColumn="聯絡人數量" />
+              <Mapping SourceColumn="銀行帳戶數量" DataSetColumn="銀行帳戶數量" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="客戶資料DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="客戶資料DataSet" msprop:Generator_UserDSName="客戶資料DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CustView" msprop:Generator_TableClassName="CustViewDataTable" msprop:Generator_TableVarName="tableCustView" msprop:Generator_TablePropName="CustView" msprop:Generator_RowDeletingName="CustViewRowDeleting" msprop:Generator_RowChangingName="CustViewRowChanging" msprop:Generator_RowEvHandlerName="CustViewRowChangeEventHandler" msprop:Generator_RowDeletedName="CustViewRowDeleted" msprop:Generator_UserTableName="CustView" msprop:Generator_RowChangedName="CustViewRowChanged" msprop:Generator_RowEvArgName="CustViewRowChangeEvent" msprop:Generator_RowClassName="CustViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="客戶名稱" msprop:Generator_ColumnVarNameInTable="column客戶名稱" msprop:Generator_ColumnPropNameInRow="客戶名稱" msprop:Generator_ColumnPropNameInTable="客戶名稱Column" msprop:Generator_UserColumnName="客戶名稱">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="聯絡人數量" msprop:Generator_ColumnVarNameInTable="column聯絡人數量" msprop:Generator_ColumnPropNameInRow="聯絡人數量" msprop:Generator_ColumnPropNameInTable="聯絡人數量Column" msprop:Generator_UserColumnName="聯絡人數量" type="xs:int" minOccurs="0" />
+              <xs:element name="銀行帳戶數量" msprop:Generator_ColumnVarNameInTable="column銀行帳戶數量" msprop:Generator_ColumnPropNameInRow="銀行帳戶數量" msprop:Generator_ColumnPropNameInTable="銀行帳戶數量Column" msprop:Generator_UserColumnName="銀行帳戶數量" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
